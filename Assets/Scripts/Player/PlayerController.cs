@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canLook = true; // 화면을 움직일 수 있는지 확인
 
-    public Action inventory;    // 인벤토리를  열기 위한 델리게이트
+    public Action inventory;    // 인벤토리 열기/닫기 델리게이트
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -122,15 +122,15 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            inventory?.Invoke();
-            ToggleCursor();
+            inventory?.Invoke();    // 인벤토리 열기/닫기 델리게이트 실행
+            ToggleCursor();         // 커서를 고정 상태 토글
         }
     }
 
     void ToggleCursor()
     {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-        canLook = !toggle;
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;    // 커서가 고정되어 있는지 확인
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;    // 고정되어 있다면 해제 아니라면 고정
+        canLook = !toggle;  // 화면을 움직일 수 있는지 토글
     }
 }

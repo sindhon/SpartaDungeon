@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CharacterManager : MonoBehaviour
+public class CharacterManager : MonoBehaviour   // 플레이어 정보를 전역에서 접근할 수 있도록 해주는 싱글톤 클래스
 {
-    private static CharacterManager instance;
+    private static CharacterManager instance;   
     public static CharacterManager Instance
     {
         get
