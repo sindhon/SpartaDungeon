@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437f02afd608f324baaddca7bb86dc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPadPower: 500
+  jumpPadPower: 300
 --- !u!23 &181946115
 MeshRenderer:
   m_ObjectHideFlags: 0
