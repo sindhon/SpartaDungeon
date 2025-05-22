@@ -2846,8 +2846,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1293375235}
-        m_TargetAssemblyTypeName: UIInventory, Assembly-CSharp
+      - m_Target: {fileID: 1293375240}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: OnUseButton
         m_Mode: 1
         m_Arguments:
@@ -2930,7 +2930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 120, y: -28}
+  m_AnchoredPosition: {x: 122, y: -28}
   m_SizeDelta: {x: 72, y: 112}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1149665851
@@ -3284,6 +3284,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1097565308}
+  - {fileID: 1720023897}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1247041214
@@ -3344,11 +3345,35 @@ MonoBehaviour:
     m_ActionId: cf2627c6-7c21-4266-9898-f8565af610b2
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1247041215}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 55fe0fc1-de55-4f33-a53f-843975134bb0
     m_ActionName: Player/Inventory[/Keyboard/tab]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1247041218}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: OnInteractInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 736a2efc-4154-486d-8566-5f8c3d631669
     m_ActionName: Player/Intract[/Keyboard/f]
   - m_PersistentCalls:
@@ -3397,6 +3422,7 @@ MonoBehaviour:
   lookSensitivity: 0.1
   minXLook: -70
   maxXLook: 90
+  canLook: 1
 --- !u!114 &1247041216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3425,6 +3451,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   condition: {fileID: 0}
   itemData: {fileID: 0}
+  dropPosition: {fileID: 1720023897}
 --- !u!114 &1247041218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3457,8 +3484,9 @@ GameObject:
   - component: {fileID: 1293375237}
   - component: {fileID: 1293375236}
   - component: {fileID: 1293375235}
+  - component: {fileID: 1293375240}
   m_Layer: 5
-  m_Name: UIInventory
+  m_Name: InventoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3560,6 +3588,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1293375240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293375234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac23478aad374f46a524315c816798e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: []
+  inventoryWindow: {fileID: 1293375234}
+  slotPanel: {fileID: 128818448}
+  dropPosition: {fileID: 0}
+  selectedItemName: {fileID: 373573404}
+  selectedItemDescription: {fileID: 921289850}
+  selectedStatName: {fileID: 1959640330}
+  selectedStatValue: {fileID: 1149665851}
+  useButton: {fileID: 1099706423}
+  equipButton: {fileID: 1901606013}
+  unequipButton: {fileID: 157849626}
+  dropButton: {fileID: 1885601509}
 --- !u!1001 &1391682751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3922,6 +3974,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713604769}
   m_CullTransparentMesh: 1
+--- !u!1 &1720023896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720023897}
+  m_Layer: 0
+  m_Name: dropPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1720023897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720023896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1247041213}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885601509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,8 +4088,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1293375235}
-        m_TargetAssemblyTypeName: UIInventory, Assembly-CSharp
+      - m_Target: {fileID: 1293375240}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: OnDropButton
         m_Mode: 1
         m_Arguments:
@@ -4456,7 +4539,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Health
 
-    Hunger'
+    Stamina'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ea2d4a188d49e2049ab605e0cce59451, type: 2}
   m_sharedMaterial: {fileID: -6287921955531586292, guid: ea2d4a188d49e2049ab605e0cce59451, type: 2}
@@ -4974,6 +5057,63 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5479381873888698584, guid: 114a40a80b58b7e4ab77696a34d6fd4f, type: 3}
   m_PrefabInstance: {fileID: 1530479946221645710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &33223854680017271
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197070068878652191, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841217283647925218, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
+      propertyPath: m_Name
+      value: Item_Sword
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b742082fdfc7d04283ff0fddcb35bf0, type: 3}
 --- !u!23 &501295247398164277
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10033,6 +10173,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5970729065078532173, guid: 114a40a80b58b7e4ab77696a34d6fd4f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970729065078532173, guid: 114a40a80b58b7e4ab77696a34d6fd4f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970729065078532173, guid: 114a40a80b58b7e4ab77696a34d6fd4f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10227,3 +10379,4 @@ SceneRoots:
   - {fileID: 501295247400588757}
   - {fileID: 8791801375750398026}
   - {fileID: 5172383503799805813}
+  - {fileID: 33223854680017271}
