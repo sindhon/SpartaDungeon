@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed;   // 플레이어 이동 속도
     [SerializeField] private float jumpPower;   // 플레이어 점프력
+    [SerializeField] private float JumpStamina; // 플레이어 점프할 때 소모하는 스테미나
     [SerializeField] private LayerMask groundLayer; // 바닥 체크를 위한 레이어마스크
     private Vector2 movementDirection;          // 이동 방향 
 
@@ -20,9 +21,9 @@ public class PlayerController : MonoBehaviour
     private float camCurXRot;      //  현재 카메라의 상하 회전값
     private Vector2 mouseDelta; // 프레임마다 입력된 마우스 이동값
 
-    public bool canLook = true;
+    public bool canLook = true; // 화면을 움직일 수 있는지 확인
 
-    public Action inventory;
+    public Action inventory;    // 인벤토리를  열기 위한 델리게이트
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (canLook)
+        if (canLook)    // 화면을 움직일 수 있을 때 (인벤토리가 꺼져 있을 때)
         {
             Look();     // 플레이어 화면 이동
         }
@@ -87,9 +88,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && OnGround())    // 플레이어가 바닥에 있고 입력이 되었을 때 
+        if (context.phase == InputActionPhase.Started)    // 입력이 되었을 경우 
         {
-            _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse); // 플레이어를 위쪽 힘을 가해 점프 실행
+            if (OnGround() && CharacterManager.Instance.Player.condition.UseStamina(JumpStamina)) // 플레이어가 바닥에 있고 스테미나가 충분했을 경우
+            {
+                _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse); // 플레이어를 위쪽 힘을 가해 점프 실행
+            }
         }
     }
 
