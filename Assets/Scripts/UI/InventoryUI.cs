@@ -197,13 +197,16 @@ public class InventoryUI : MonoBehaviour
         {
             for (int i = 0; i < selectedItem.consumables.Length; i++)
             {
-                switch (selectedItem.consumables[i].type)   // 아이템의 스탯(체력, 스테미나) 타입에 따라 그에 맞는 상태값 회복
+                switch (selectedItem.consumables[i].type)   // 아이템의 스탯(체력, 스테미나 등) 타입에 따라 그에 맞는 상태값 회복
                 {
                     case ConsumableType.Health:
                         condition.Heal(selectedItem.consumables[i].value);
                         break;
                     case ConsumableType.Stamina:
                         condition.AddStamina(selectedItem.consumables[i].value);
+                        break;
+                    case ConsumableType.SpeedUp:
+                        condition.SpeedUp(selectedItem.consumables[i].value);
                         break;
                 }
             }

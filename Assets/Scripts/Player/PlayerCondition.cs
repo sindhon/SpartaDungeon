@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +37,18 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public void AddStamina(float amount)
     {
         stamina.Add(amount); // 입력 값만큼 스테미나 회복
+    }
+
+    public void SpeedUp(float amount)
+    {
+        StartCoroutine(IncreaseSpeed(amount));  // 입력 값만큼 속도 증가
+    }
+
+    private IEnumerator IncreaseSpeed(float amount)
+    {
+        CharacterManager.Instance.Player.controller.MoveSpeed += amount;    // 속도 증가
+        yield return new WaitForSeconds(10f);       // 10초동안 증가된 속도 유지
+        CharacterManager.Instance.Player.controller.MoveSpeed -= amount;    // 속도 복구
     }
 
     public void Die()

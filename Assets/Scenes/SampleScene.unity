@@ -3837,7 +3837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82c72c5b606fae4ab561cfded0e98dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 3
+  climbSpeed: 2
   wallLayer:
     serializedVersion: 2
     m_Bits: 55

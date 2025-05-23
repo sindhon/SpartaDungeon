@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer; // 바닥 체크를 위한 레이어마스크
     private Vector2 movementDirection;          // 이동 방향 
 
+    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
+
     [Header("Look")]
     [SerializeField] private Transform cameraContainer; // 카메라의 상하 회전을 담당하는 오브젝트
     [SerializeField] private float lookSensitivity; // 마우스 감도

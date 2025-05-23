@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +12,8 @@ public enum ItemType    // 아이템 타입
 public enum ConsumableType  // 소모 아이템 타입
 {
     Health,
-    Stamina
+    Stamina,
+    SpeedUp
 }
 
 [Serializable]
