@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -228,6 +228,11 @@ public class InventoryUI : MonoBehaviour
             slots[selectedItemIndex].item = null;   // 해당 슬롯의 아이템 제거
             selectedItemIndex = -1; 
             ClearSelectedItemWindow();  // 선택한 아이템 정보 UI창 초기화
+        }
+
+        if (slots[curEquipIndex].equipped)
+        {
+            UnEquip(curEquipIndex); // 장착한 아이템 해제
         }
 
         UpdateUI(); // 인벤토리 UI 초기화
