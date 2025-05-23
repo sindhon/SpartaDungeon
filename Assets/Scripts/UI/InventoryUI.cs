@@ -56,7 +56,7 @@ public class InventoryUI : MonoBehaviour
 
     }
 
-    void ClearSelectedItemWindow()
+    void ClearSelectedItemWindow()  // 선택된 아이템 정보 UI 초기화
     {
         selectedItemName.text = string.Empty; 
         selectedItemDescription.text = string.Empty;
